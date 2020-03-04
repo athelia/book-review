@@ -22,7 +22,7 @@ class Book(db.Model):
     book_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     author = db.Column(db.String(), nullable=True)
     title = db.Column(db.String(), nullable=False)
-    isbn_13 = db.Column(db.Integer, nullable=False)
+    isbn_13 = db.Column(db.BigInteger, nullable=False)
     genre = db.Column(db.String(), nullable=True)
 
 
@@ -57,4 +57,5 @@ def connect_to_db(app):
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
+    # db.create_all()
     print('Connected to DB.')
